@@ -20,14 +20,14 @@ for i in range(len(words)):
 
 # Find a capital letter to start the sentence.
 capital_words = list(filter(lambda word: word[0].isupper(), list(following)))
-start_word = random.choice(capital_words)
+start_word = "Alice" #random.choice(capital_words)
 ret = [start_word]
 
 # Create sentence until we come to a full stop.
 while True:
 	following_word = random.choice(following[start_word])
 	ret.append(following_word)
-	if following_word == ".":
+	if re.match("[.!?]", following_word):
 		break
 	start_word = following_word
 
